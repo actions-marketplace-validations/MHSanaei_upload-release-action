@@ -1,6 +1,6 @@
 {
   "name": "upload-release-action",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "private": true,
   "description": "Upload files to a GitHub release",
   "main": "lib/main.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/svestaro/upload-release-action.git"
+    "url": "git+https://github.com/MHSanaei/upload-release-action.git"
   },
   "keywords": [
     "actions",

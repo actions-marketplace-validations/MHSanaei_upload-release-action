@@ -1,4 +1,4 @@
-# Upload files to a GitHub release [![GitHub Actions Workflow](https://github.com/svenstaro/upload-release-action/actions/workflows/ci.yml/badge.svg)](https://github.com/svenstaro/upload-release-action/actions)
+# Upload files to a GitHub release [![GitHub Actions Workflow](https://github.com/MHSanaei/upload-release-action/actions/workflows/build.yml/badge.svg)](https://github.com/MHSanaei/upload-release-action/actions)
 
 This action allows you to select which files to upload to the just-tagged release.
 It runs on all operating systems types offered by GitHub.
@@ -50,11 +50,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Build
       run: cargo build --release
     - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v2
+      uses: MHSanaei/upload-release-action@v2.8.0
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: target/release/mything
@@ -92,11 +92,11 @@ jobs:
             asset_name: mything-macos-amd64
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Build
       run: cargo build --release --locked
     - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v2
+      uses: MHSanaei/upload-release-action@v2.8.0
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: target/release/${{ matrix.artifact_name }}
@@ -118,11 +118,11 @@ jobs:
     name: Publish binaries
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Build
       run: cargo build --release
     - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v2
+      uses: MHSanaei/upload-release-action@v2.8.0
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: target/release/my*
@@ -147,11 +147,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Build
       run: cargo build --release
     - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v2
+      uses: MHSanaei/upload-release-action@v2.8.0
       with:
         repo_name: owner/repository-name
         # A personal access token for the GitHub repository in which the release will be created and edited.
@@ -185,7 +185,7 @@ jobs:
     runs-on: ubuntu-latest
          
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # This step reads a file from repo and use it for body of the release
       # This works on any self-hosted runner OS
@@ -200,7 +200,7 @@ jobs:
           echo "RELEASE_BODY=$r" >> $GITHUB_OUTPUT          # <--- Set environment variable
 
       - name: Upload Binaries to Release
-        uses: svenstaro/upload-release-action@v2
+        uses: MHSanaei/upload-release-action@v2.8.0
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref }}
@@ -230,4 +230,4 @@ To release this Action:
 - `git commit -am <version>`
 - `git tag -sm <version> <version>`
 - `git push --follow-tags`
-- Go to https://github.com/svenstaro/upload-release-action/releases and publish the new version
+- Go to https://github.com/MHSanaei/upload-release-action/releases and publish the new version
